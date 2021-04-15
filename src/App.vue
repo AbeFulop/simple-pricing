@@ -31,7 +31,7 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <CustomerForm />
     </v-main>
 
     <v-footer
@@ -61,13 +61,13 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import CustomerForm from './components/CustomerForm';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    CustomerForm,
   },
 
   data: () => ({
