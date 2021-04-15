@@ -10,29 +10,22 @@
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="@/assets/cubitac-logo.svg"
           transition="scale-transition"
           width="40"
         />
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <v-toolbar-title>Simple Pricinig</v-toolbar-title>
       </div>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://cubitac.com"
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">cubitac.com</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
@@ -40,6 +33,30 @@
     <v-main>
       <HelloWorld/>
     </v-main>
+
+    <v-footer
+      dark
+      color="secondary"
+      paddless
+    >
+      <v-container>
+        <v-row>
+          <v-col cols="12" sm="6" class="text-right">
+            <div>Cubitac Cabinetry</div>
+            <div>4 Bell Drive</div>
+            <div>Ridgefield, NJ 07657</div>
+          </v-col>
+
+          <v-divider vertical></v-divider>
+
+          <v-col cols="12" sm="6">
+            <div>201.464.2000</div>
+            <div><a href="https://cubitac.com" target="_blank">cubitac.com</a></div>
+            <div><a href="mailto:orders@cubitac.com" target="_blank">orders@cubitac.com</a></div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-footer>
   </v-app>
 </template>
 
@@ -58,3 +75,13 @@ export default {
   }),
 };
 </script>
+
+<style scoped lang="scss">
+
+.v-footer.theme--dark {
+  a {
+    color: #fff;
+  }
+}
+
+</style>
