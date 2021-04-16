@@ -1,40 +1,56 @@
 <template>
   <v-form>
-    <v-text-field label="Company Name"></v-text-field>
+    <v-container>
+      <v-row>
+        <v-col cols="12" lg="2" sm="4">
+          <v-text-field  label="Company Name"></v-text-field>
+        </v-col>
 
-    <v-text-field label="Shipping Address"></v-text-field>
+        <v-col cols="12" lg="2" sm="4">
+          <v-text-field  label="Shipping Address"></v-text-field>
+        </v-col>
 
-    <v-menu
-      v-model="dateMenu"
-      :close-on-content-click="false"
-      :nudge-right="40"
-      transition="scale-transition"
-      offset-y
-      min-width="auto"
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-text-field
-          v-model="computedDateFormatted"
-          label="Date"
-          append-icon="mdi-calendar"
-          readonly
-          v-bind="attrs"
-          v-on="on"
-          @click:append="dateMenu = true"
-        ></v-text-field>
-      </template>
+        <v-col cols="12" lg="2" sm="4">
+          <v-text-field  label="Email"></v-text-field>
+        </v-col>
 
-      <v-date-picker
-        v-model="pickerDate"
-        @input="dateMenu = false"
-      ></v-date-picker>
-    </v-menu>
+        <v-col cols="12" lg="2" sm="4">
+          <v-text-field  label="Phone"></v-text-field>
+        </v-col>
 
-    <v-text-field label="PO"></v-text-field>
+        <v-col cols="12" lg="2" sm="4">
+          <v-text-field  label="PO"></v-text-field>
+        </v-col>
 
-    <v-text-field label="Email"></v-text-field>
+        <v-col cols="12" lg="2" sm="4">
+          <v-menu
+            v-model="dateMenu"
+            :close-on-content-click="false"
+            :nudge-right="40"
+            transition="scale-transition"
+            offset-y
+            min-width="auto"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                v-model="computedDateFormatted"
+                label="Date"
+                append-icon="mdi-calendar"
+                readonly
+                v-bind="attrs"
+                v-on="on"
+                @click:append="dateMenu = true"
+              ></v-text-field>
+            </template>
 
-    <v-text-field label="Phone"></v-text-field>
+            <v-date-picker
+              v-model="pickerDate"
+              @input="dateMenu = false"
+            ></v-date-picker>
+          </v-menu>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-form>
 </template>
 
@@ -85,7 +101,6 @@ export default {
 <style lang="scss" scoped>
 .v-form {
   width: 100%;
-  max-width: 600px;
   margin: 12px auto;
   padding: 12px;
 }
