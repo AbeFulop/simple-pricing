@@ -13,21 +13,28 @@
                 <v-col
                   v-for="style in collection.styles"
                   :key="style.name"
-                  cols="4"
+                  class="flex-grow-0 pa-1"
                 >
                   <v-item>
                     <v-card
                       :color="activeDoorStyle === style.name ? 'primary lighten-4' : ''"
-                      class="d-flex align-center"
+                      class="d-flex align-center pa-2"
                       light
-                      height="100"
+                      hover
                       @click="selectDoorStyle(style.name)"
                     >
                       <v-scroll-y-transition>
-                        <div
-                          class="text-h5 flex-grow-1 text-center"
-                        >
-                          {{ style.description }}
+                        <div class="flex-grow-1">
+                          <v-img
+                            class="white--text align-end p"
+                            width="50"
+                            :src="style.image"
+                          >
+                        </v-img>
+                          <div class="caption mt-2">
+                            <div class="font-weight-bold">{{ style.style }}</div>
+                            <div>{{ style.color }}</div>
+                          </div>
                         </div>
                       </v-scroll-y-transition>
                     </v-card>
@@ -184,3 +191,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.text-shadow-blur {
+  text-shadow: 0 0 10px #000;
+}
+</style>
