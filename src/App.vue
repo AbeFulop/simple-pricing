@@ -32,6 +32,8 @@
 
     <v-main>
       <CustomerForm />
+
+      <ItemList />
     </v-main>
 
     <v-footer
@@ -62,12 +64,14 @@
 
 <script>
 import CustomerForm from './components/CustomerForm';
+import ItemList from './components/ItemList';
 
 export default {
   name: 'App',
 
   components: {
     CustomerForm,
+    ItemList
   },
 
   data: () => ({
