@@ -52,14 +52,18 @@
           :items="rows"
           disable-pagination
           hide-default-footer
+          class="elevation-2"
         >
           <template v-slot:[`item.qty`]="{ item }">
-            <v-edit-dialog :return-value.sync="item.qty">
-              {{ item.qty }}
-              <template v-slot:input>
-                <v-text-field v-model="item.qty" label="Qty" single-line></v-text-field>
-              </template>
-            </v-edit-dialog>
+            <v-text-field
+              v-model="item.qty"
+              label="Qty"
+              class="cell-input-qty"
+              single-line
+              solo
+              flat
+              dense
+            ></v-text-field>
           </template>
 
           <template v-slot:[`item.unitPrice`]="{ item }">
@@ -202,7 +206,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.text-shadow-blur {
-  text-shadow: 0 0 10px #000;
+.v-data-table ::v-deep .v-text-field__details {
+  display: none;
+}
+.cell-input-qty {
+  width: 55px;
 }
 </style>
