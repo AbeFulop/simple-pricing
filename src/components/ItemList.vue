@@ -66,6 +66,29 @@
             ></v-text-field>
           </template>
 
+          <template v-slot:[`item.hinge`]="{ item }">
+            <v-select
+              v-model="item.hinge"
+              :items="['Right', 'Left']"
+              class="cell-input-select"
+              dense
+              solo
+              flat
+            ></v-select>
+          </template>
+
+          <template v-slot:[`item.finish`]="{ item }">
+            <v-select
+              v-model="item.finish"
+              :items="['Right', 'Left']"
+              class="cell-input-select"
+              dense
+              solo
+              flat
+              multiple
+            ></v-select>
+          </template>
+
           <template v-slot:[`item.unitPrice`]="{ item }">
             <span>{{ formatCurrency(item.unitPrice * multiplier) }}</span>
           </template>
@@ -211,5 +234,9 @@ export default {
 }
 .cell-input-qty {
   width: 55px;
+}
+
+.cell-input-select {
+  width: 150px;
 }
 </style>
