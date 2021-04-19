@@ -63,13 +63,20 @@
           </template>
 
           <template v-slot:[`item.unitPrice`]="{ item }">
-            <span>{{ formatCurrency(item.unitPrice) }}</span>
+            <span>{{ formatCurrency(item.unitPrice * multiplier) }}</span>
           </template>
 
           <template v-slot:[`item.totalPrice`]="{ item }">
-            <span>{{ +(item.qty && item.unitPrice) ? formatCurrency(item.qty * item.unitPrice) : '' }}</span>
+            <span>{{ +(item.qty && item.unitPrice) ? formatCurrency(item.qty * item.unitPrice * multiplier) : '' }}</span>
           </template>
         </v-data-table>
+
+        <v-text-field
+          v-model="multiplier"
+          label="Multiplier"
+          type="number"
+          step=".01"
+        ></v-text-field>
 
         <v-autocomplete
           v-model="selectedItem"
@@ -112,6 +119,8 @@ export default {
       activeDoorStyle: null,
 
       selectedItem: null,
+
+      multiplier: 1,
     }
   },
 
@@ -168,8 +177,8 @@ export default {
           description: item.description,
           hinge: null,
           finish: null,
-          unitPrice: item.pricing[this.activeDoorStyle], // TODO: calculate multipler
-        })
+          unitPrice: item.pricing[this.activeDoorStyle],
+        });
 
         setTimeout(() => this.selectedItem = null, 0)
 
