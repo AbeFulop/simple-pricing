@@ -15,7 +15,7 @@
           width="40"
         />
 
-        <v-toolbar-title>Simple Pricinig</v-toolbar-title>
+        <v-toolbar-title>Cubitac Simple Pricinig</v-toolbar-title>
       </div>
 
       <v-spacer></v-spacer>
@@ -43,15 +43,15 @@
     >
       <v-container>
         <v-row>
-          <v-col cols="12" sm="6" class="text-right">
+          <v-col>
             <div>Cubitac Cabinetry</div>
             <div>4 Bell Drive</div>
             <div>Ridgefield, NJ 07657</div>
           </v-col>
 
-          <v-divider vertical></v-divider>
+          <v-spacer></v-spacer>
 
-          <v-col cols="12" sm="6">
+          <v-col class="text-right">
             <div>201.464.2000</div>
             <div><a href="https://cubitac.com" target="_blank">cubitac.com</a></div>
             <div><a href="mailto:orders@cubitac.com" target="_blank">orders@cubitac.com</a></div>

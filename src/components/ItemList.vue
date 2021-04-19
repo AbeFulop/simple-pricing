@@ -2,7 +2,22 @@
   <v-container>
     <v-row>
       <v-col cols="4">
-        <h2 class="text-h4">Select Style</h2>
+        <v-row>
+          <v-col cols="6">
+            <h2 class="text-h4">Select Style</h2>
+          </v-col>
+
+          <v-col cols="6">
+            <div class="multiplier-container ml-auto mr-5">
+              <v-text-field
+                v-model="multiplier"
+                label="Multiplier"
+                type="number"
+                step=".01"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
 
         <div v-for="collection in collections" :key="collection.name">
           <h3 class="subtitle-1">{{ collection.name }}</h3>
@@ -17,10 +32,11 @@
                 >
                   <v-item>
                     <v-card
-                      :color="activeDoorStyle === style.name ? 'primary lighten-4' : ''"
                       class="d-flex align-center pa-2"
+                      :class="activeDoorStyle === style.name ? 'elevation-5 active-style' : ''"
                       light
                       hover
+                      outlined
                       @click="selectDoorStyle(style.name)"
                     >
                       <v-scroll-y-transition>
@@ -129,13 +145,6 @@
           </v-card>
         </v-dialog>
 
-        <v-text-field
-          v-model="multiplier"
-          label="Multiplier"
-          type="number"
-          step=".01"
-        ></v-text-field>
-
         <v-snackbar v-model="itemNotFoundSnackbar">
           Item not found in current door style
 
@@ -151,18 +160,23 @@
           </template>
         </v-snackbar>
 
-        <v-autocomplete
-          v-model="selectedItem"
-          :items="productNames"
-          label="Item"
-          auto-select-first
-          :disabled="!activeDoorStyle"
-          @change="addItem"
-        ></v-autocomplete>
+        <v-row class="item-list-container align-baseline mt-1">
+          <v-col>
+            <v-autocomplete
+              v-model="selectedItem"
+              :items="productNames"
+              label="Item"
+              auto-select-first
+              :disabled="!activeDoorStyle"
+              @change="addItem"
+            ></v-autocomplete>
+          </v-col>
+        </v-row>
 
-        <v-btn @click="addItem" :disabled="!activeDoorStyle">Add Row</v-btn>
 
-        <div>Sub Total: {{ formatCurrency(subTotal) }}</div>
+        <v-row class="font-weight-bold">
+          <v-col class="text-right">Sub Total: {{ formatCurrency(subTotal) }}</v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -244,7 +258,6 @@ export default {
       this.rows.forEach(item => {
         subTotal += item.qty * item.unitPrice * this.multiplier;
       });
-      console.log(subTotal);
       return subTotal;
     }
   },
@@ -325,11 +338,24 @@ export default {
 .v-data-table ::v-deep .v-text-field__details {
   display: none;
 }
+
 .cell-input-qty {
   width: 55px;
 }
 
 .cell-input-select {
   width: 150px;
+}
+
+.active-style {
+  border: 2px solid #00838f;
+}
+
+.multiplier-container {
+  width: 100px;
+}
+
+.item-list-container {
+  width: 350px;
 }
 </style>

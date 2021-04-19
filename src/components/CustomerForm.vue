@@ -34,7 +34,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 v-model="computedDateFormatted"
-                label="Date"
+                label="Ship Date"
                 append-icon="mdi-calendar"
                 readonly
                 v-bind="attrs"
