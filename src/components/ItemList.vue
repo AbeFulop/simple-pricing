@@ -105,6 +105,21 @@
           step=".01"
         ></v-text-field>
 
+        <v-snackbar v-model="itemNotFoundSnackbar">
+          Item not found in current door style
+
+          <template v-slot:action="{ attrs }">
+            <v-btn
+              color="pink"
+              text
+              v-bind="attrs"
+              @click="itemNotFoundSnackbar = false"
+            >
+              Close
+            </v-btn>
+          </template>
+        </v-snackbar>
+
         <v-autocomplete
           v-model="selectedItem"
           :items="productNames"
@@ -148,7 +163,9 @@ export default {
       selectedItem: null,
 
       multiplier: 1,
-    }
+
+      itemNotFoundSnackbar: false,
+    };
   },
 
   computed: {
@@ -197,6 +214,15 @@ export default {
       const item = this.allItems.find(p => p.item === itemName);
 
       if (item) {
+
+        if (!item.pricing[this.activeDoorStyle]) {
+          this.itemNotFoundSnackbar = true;
+
+          setTimeout(() => this.itemNotFoundSnackbar = false, 6000);
+
+          return;
+        }
+
         this.rows.push({
           qty: 1,
           style: this.activeDoorStyle,
