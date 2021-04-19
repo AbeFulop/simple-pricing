@@ -126,17 +126,17 @@
           label="Item"
           auto-select-first
           :disabled="!activeDoorStyle"
-          @change="addEmptyRow"
+          @change="addItem"
         ></v-autocomplete>
 
-        <v-btn @click="addEmptyRow" :disabled="!activeDoorStyle">Add Row</v-btn>
+        <v-btn @click="addItem" :disabled="!activeDoorStyle">Add Row</v-btn>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import data from '../data'
+import data from '../data';
 
 export default {
   data() {
@@ -170,19 +170,19 @@ export default {
 
   computed: {
     imperialStyles() {
-      return this.allStyles.filter(s => s.series === 'Imperial')
+      return this.allStyles.filter(s => s.series === 'Imperial');
     },
 
     prestigeStyles() {
-      return this.allStyles.filter(s => s.series === 'Prestige')
+      return this.allStyles.filter(s => s.series === 'Prestige');
     },
 
     basicStyles() {
-      return this.allStyles.filter(s => s.series === 'Basic')
+      return this.allStyles.filter(s => s.series === 'Basic');
     },
 
     collections() {
-        return [
+      return [
         {
           name: 'Imperial',
           styles: this.imperialStyles
@@ -192,19 +192,19 @@ export default {
           styles: this.prestigeStyles
         },
         {
-          name: 'basic',
+          name: 'Basic',
           styles: this.basicStyles
         }
-      ]
-      },
+      ];
+    },
 
     productNames() {
-      return this.allItems.map(item => item.item)
+      return this.allItems.map(item => item.item);
     }
   },
 
   methods: {
-    addEmptyRow() {
+    addItem() {
       const itemName = this.selectedItem;
 
       if (!itemName) {
@@ -233,7 +233,7 @@ export default {
           unitPrice: item.pricing[this.activeDoorStyle],
         });
 
-        setTimeout(() => this.selectedItem = null, 0)
+        setTimeout(() => this.selectedItem = null, 0);
 
       }
     },
@@ -246,12 +246,12 @@ export default {
       const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
-      })
+      });
 
-      return formatter.format(value)
+      return formatter.format(value);
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
