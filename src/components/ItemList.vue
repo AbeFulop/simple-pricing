@@ -109,7 +109,15 @@
               solo
               flat
               multiple
-            ></v-select>
+            >
+              <template v-slot:selection="{ index, item, parent }">
+                <template v-if="index === 0">
+                  <span v-if="parent.value.length === 1">{{ item }}</span>
+
+                  <span v-else>Both</span>
+                </template>
+              </template>
+            </v-select>
           </template>
 
           <template v-slot:[`item.unitPrice`]="{ item }">
@@ -468,7 +476,7 @@ export default {
 }
 
 .cell-input-select {
-  width: 150px;
+  width: 100px;
 }
 
 .active-style {
