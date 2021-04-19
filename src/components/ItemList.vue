@@ -69,7 +69,12 @@
           disable-pagination
           hide-default-footer
           class="elevation-2"
+          disable-sort
         >
+          <template v-slot:[`item.isSub`]="{ item }">
+            <v-icon v-if="item.isSub" small>mdi-wrench</v-icon>
+          </template>
+
           <template v-slot:[`item.qty`]="{ item }">
             <v-text-field
               v-model="item.qty"
@@ -84,6 +89,7 @@
 
           <template v-slot:[`item.hinge`]="{ item }">
             <v-select
+              v-if="!item.isSub"
               v-model="item.hinge"
               :items="['Right', 'Left']"
               class="cell-input-select"
@@ -95,6 +101,7 @@
 
           <template v-slot:[`item.finish`]="{ item }">
             <v-select
+              v-if="!item.isSub"
               v-model="item.finish"
               :items="['Right', 'Left']"
               class="cell-input-select"
@@ -113,20 +120,60 @@
             <span>{{ +(item.qty && item.unitPrice) ? formatCurrency(item.qty * item.unitPrice * multiplier) : '' }}</span>
           </template>
 
-          <template v-slot:[`item.actions`]="{ index }">
-            <v-icon
-              small
-              @click="deleteItem(index)"
-            >mdi-delete</v-icon>
+          <template v-slot:[`item.actions`]="{ index, item }">
+            <div class="text-right">
+              <v-icon
+                v-if="!item.isSub"
+                small
+                class="mr-2"
+                @click="addSub(index)"
+              >mdi-wrench</v-icon>
+
+              <v-icon
+                small
+                @click="deleteItem(index)"
+              >mdi-delete</v-icon>
+            </div>
           </template>
         </v-data-table>
+
+        <v-dialog
+          v-model="addSubDialog"
+          max-width="500px"
+        >
+        <v-card>
+          <v-card-title>Add Modification</v-card-title>
+
+          <v-card-text>
+            <v-row class="mx-5">
+              <v-autocomplete
+                v-model="selectedItem"
+                :items="subNames"
+                label="Modification"
+                auto-select-first
+                @change="addSubItem"
+              ></v-autocomplete>
+            </v-row>
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+              <v-btn
+                color="priamry"
+                text
+                @click="closeAddSub"
+              >Close</v-btn>
+          </v-card-actions>
+        </v-card>
+        </v-dialog>
 
         <v-dialog
           v-model="dialogDelete"
           max-width="500px"
         >
           <v-card>
-            <v-card-title class="healine">Are you sure you wnat to delete this item?</v-card-title>
+            <v-card-title class="healine">Are you sure you want to delete this item?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
 
@@ -154,6 +201,21 @@
               text
               v-bind="attrs"
               @click="itemNotFoundSnackbar = false"
+            >
+              Close
+            </v-btn>
+          </template>
+        </v-snackbar>
+
+        <v-snackbar v-model="subNoPrice">
+          Price should be calculated manualy
+
+          <template v-slot:action="{ attrs }">
+            <v-btn
+              color="pink"
+              text
+              v-bind="attrs"
+              @click="subNoPrice = false"
             >
               Close
             </v-btn>
@@ -189,6 +251,7 @@ export default {
   data() {
     return {
       headers: [
+        { text: '', value: 'isSub' },
         { text: 'Qty', value: 'qty' },
         { text: 'Style', value: 'style' },
         { text: 'Item', value: 'item' },
@@ -206,6 +269,8 @@ export default {
 
       allItems: data.items,
 
+      allSubs: data.subs,
+
       activeDoorStyle: null,
 
       selectedItem: null,
@@ -213,6 +278,12 @@ export default {
       multiplier: 1,
 
       itemNotFoundSnackbar: false,
+
+      subNoPrice: false,
+
+      addSubDialog: false,
+
+      activeItemIndex: -1,
 
       deleteIndex: -1,
       dialogDelete: false,
@@ -253,6 +324,10 @@ export default {
       return this.allItems.map(item => item.item);
     },
 
+    subNames() {
+      return this.allSubs.map(sub => sub.item);
+    },
+
     subTotal() {
       let subTotal = 0;
       this.rows.forEach(item => {
@@ -265,6 +340,10 @@ export default {
   watch: {
     dialogDelete(val) {
       val || this.closeDelete();
+    },
+
+    addSubDialog(val) {
+      val || this.closeAddSub();
     }
   },
 
@@ -301,6 +380,51 @@ export default {
         setTimeout(() => this.selectedItem = null, 0);
 
       }
+    },
+
+    addSubItem() {
+      const itemName = this.selectedItem;
+
+      if (!itemName) {
+        return;
+      }
+
+      const item = this.allSubs.find(p => p.item === itemName);
+
+      if (item) {
+        if (!item.price) {
+          this.subNoPrice = true;
+          item.price = 999;
+          setTimeout(() => this.subNoPrice = false, 6000);
+        }
+
+        this.rows.splice(this.activeItemIndex + 1, 0, {
+          qty: 1,
+          style: this.activeDoorStyle,
+          item: item.item,
+          description: item.description,
+          hinge: null,
+          finish: null,
+          unitPrice: item.price,
+          isSub: true,
+        })
+
+        setTimeout(() => {
+          this.selectedItem = null;
+          this.closeAddSub();
+        }, 0);
+
+      }
+    },
+
+    addSub(index) {
+      this.addSubDialog = true;
+      this.activeItemIndex = index;
+    },
+
+    closeAddSub() {
+      this.addSubDialog = false;
+      this.activeItemIndex = -1;
     },
 
     deleteItem(index) {

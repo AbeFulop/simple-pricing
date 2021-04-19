@@ -11279,5 +11279,196 @@
         "BPO": "154"
       }
     }
+  ],
+
+  "subs": [
+    {
+        "item": "BASE CHASE",
+        "description": "Create Chase for Base Cabinet",
+        "price": "750"
+    },
+    {
+        "item": "BASE CUT DEPTH",
+        "description": "Cut Depth of Base Cabinet",
+        "price": "404"
+    },
+    {
+        "item": "BASE CUT HEIGHT",
+        "description": "Cut Top Drawer of Base Cabinet",
+        "price": "289"
+    },
+    {
+        "item": "BASIC FINISH INTERIOR",
+        "description": "Finish Interior Of Basic Cabinet (Shelf Included) 75% Of Cabinet"
+    },
+    {
+        "item": "BWBK15-1",
+        "description": "15\" Waste Basket Base Cabinet",
+        "price": "481"
+    },
+    {
+        "item": "BWBK18-2",
+        "description": "18\" Waste Basket Base Cabinet",
+        "price": "635"
+    },
+    {
+        "item": "BWBK21-2",
+        "description": "21\" Waste Basket Base Cabinet",
+        "price": "881"
+    },
+    {
+        "item": "CORNER CHASE",
+        "description": "Create Chase for Corner Cabinet",
+        "price": "1174"
+    },
+    {
+        "item": "DBL DRAWER BASE CUT DEPTH",
+        "description": "Cut Depth of Double Drawer Base Cabinet",
+        "price": "770"
+    },
+    {
+        "item": "DRAWER BASE CHASE",
+        "description": "Create Chase for Drawer Base Cabinet",
+        "price": "962"
+    },
+    {
+        "item": "DRAWER BASE CUT DEPTH",
+        "description": "Cut Depth of Drawer Base Cabinet",
+        "price": "558"
+    },
+    {
+        "item": "FINISH INTERIOR",
+        "description": "Finish Interior Of Cabinet (Shelf Included) 50% Of Cabinet"
+    },
+    {
+        "item": "Flush Side Base",
+        "description": "Flush Side of Base Cabinet",
+        "price": "327"
+    },
+    {
+        "item": "Flush Side Tall",
+        "description": "Flush Side of Tall Cabinet",
+        "price": "577"
+    },
+    {
+        "item": "Flush Side Wall 30",
+        "description": "Flush Side of 30\" High Wall Cabinet",
+        "price": "289"
+    },
+    {
+        "item": "Flush Side Wall 36",
+        "description": "Flush Side of 36\" High Wall Cabinet",
+        "price": "289"
+    },
+    {
+        "item": "Flush Side Wall 42",
+        "description": "Flush Side of 42\" High Wall Cabinet",
+        "price": "289"
+    },
+    {
+        "item": "OV-2CUT-MOD",
+        "description": "Modify OV Cabinet Per Drawing",
+        "price": "1053"
+    },
+    {
+        "item": "OV-MOD ",
+        "description": "Modify OV Cabinet Per Drawing",
+        "price": "878"
+    },
+    {
+        "item": "POS12",
+        "description": "12\" Pull Out Drawer",
+        "price": "102"
+    },
+    {
+        "item": "POS15",
+        "description": "15\" Pull Out Drawer",
+        "price": "111"
+    },
+    {
+        "item": "POS18",
+        "description": "18\" Pull Out Drawer",
+        "price": "123"
+    },
+    {
+        "item": "POS21",
+        "description": "21\" Pull Out Drawer",
+        "price": "134"
+    },
+    {
+        "item": "POS24",
+        "description": "24\" Pull Out Drawer",
+        "price": "142"
+    },
+    {
+        "item": "POS27",
+        "description": "27\" Pull Out Drawer",
+        "price": "153"
+    },
+    {
+        "item": "POS30",
+        "description": "30\" Pull Out Drawer",
+        "price": "164"
+    },
+    {
+        "item": "POS33",
+        "description": "33\" Pull Out Drawer",
+        "price": "172"
+    },
+    {
+        "item": "POS36",
+        "description": "36\" Pull Out Drawer",
+        "price": "184"
+    },
+    {
+        "item": "SC-BWBK15-1",
+        "description": "15\" Waste Basket Base Cabinet w/Soft Close",
+        "price": "693"
+    },
+    {
+        "item": "SC-BWBK18-2",
+        "description": "18\" Waste Basket Base Cabinet w/Soft Close",
+        "price": "847"
+    },
+    {
+        "item": "SINK BASE CHASE",
+        "description": "Create Chase for Sink Base Cabinet",
+        "price": "616"
+    },
+    {
+        "item": "SINK BASE CUT DEPTH",
+        "description": "Cut Depth of Sink Base Cabinet",
+        "price": "270"
+    },
+    {
+        "item": "TALL CHASE",
+        "description": "Create Chase for Tall Cabinet",
+        "price": "1000"
+    },
+    {
+        "item": "TALL CUT DEPTH",
+        "description": "Cut Depth of Tall Cabinet",
+        "price": "770"
+    },
+    {
+        "item": "TOT-15",
+        "description": "15\" Tilt Out Tray",
+        "price": "166"
+    },
+    {
+        "item": "TOT-18",
+        "description": "18\" Tilt Out Tray",
+        "price": "168"
+    },
+    {
+        "item": "WALL CHASE",
+        "description": "Create Chase for Wall Cabinet",
+        "price": "500"
+    },
+    {
+        "item": "WALL CUT DEPTH",
+        "description": "Cut Depth of Wall Cabinet",
+        "price": "327"
+    }
   ]
 }
