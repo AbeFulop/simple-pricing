@@ -96,7 +96,38 @@
           <template v-slot:[`item.totalPrice`]="{ item }">
             <span>{{ +(item.qty && item.unitPrice) ? formatCurrency(item.qty * item.unitPrice * multiplier) : '' }}</span>
           </template>
+
+          <template v-slot:[`item.actions`]="{ index }">
+            <v-icon
+              small
+              @click="deleteItem(index)"
+            >mdi-delete</v-icon>
+          </template>
         </v-data-table>
+
+        <v-dialog
+          v-model="dialogDelete"
+          max-width="500px"
+        >
+          <v-card>
+            <v-card-title class="healine">Are you sure you wnat to delete this item?</v-card-title>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn
+                color="secondary"
+                text
+                @click="closeDelete"
+              >Cancel</v-btn>
+
+              <v-btn
+                color="priamry"
+                text
+                @click="deleteItemConfirm"
+              >OK</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
 
         <v-text-field
           v-model="multiplier"
@@ -150,6 +181,7 @@ export default {
         { text: 'Finish', value: 'finish' },
         { text: 'Unit Price', value: 'unitPrice' },
         { text: 'Total Price', value: 'totalPrice' },
+        { text: '', value: 'actions' },
       ],
 
       rows: [],
@@ -165,6 +197,9 @@ export default {
       multiplier: 1,
 
       itemNotFoundSnackbar: false,
+
+      deleteIndex: -1,
+      dialogDelete: false,
     };
   },
 
@@ -203,6 +238,12 @@ export default {
     }
   },
 
+  watch: {
+    dialogDelete(val) {
+      val || this.closeDelete();
+    }
+  },
+
   methods: {
     addItem() {
       const itemName = this.selectedItem;
@@ -236,6 +277,21 @@ export default {
         setTimeout(() => this.selectedItem = null, 0);
 
       }
+    },
+
+    deleteItem(index) {
+      this.deleteIndex = index;
+      this.dialogDelete = true;
+    },
+
+    deleteItemConfirm(index) {
+      this.rows.splice(index, 1);
+      this.closeDelete();
+    },
+
+    closeDelete() {
+      this.dialogDelete = false;
+      this.deleteIndex = -1;
     },
 
     selectDoorStyle(style) {
