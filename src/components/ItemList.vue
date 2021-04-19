@@ -161,6 +161,8 @@
         ></v-autocomplete>
 
         <v-btn @click="addItem" :disabled="!activeDoorStyle">Add Row</v-btn>
+
+        <div>Sub Total: {{ formatCurrency(subTotal) }}</div>
       </v-col>
     </v-row>
   </v-container>
@@ -235,6 +237,15 @@ export default {
 
     productNames() {
       return this.allItems.map(item => item.item);
+    },
+
+    subTotal() {
+      let subTotal = 0;
+      this.rows.forEach(item => {
+        subTotal += item.qty * item.unitPrice * this.multiplier;
+      });
+      console.log(subTotal);
+      return subTotal;
     }
   },
 
