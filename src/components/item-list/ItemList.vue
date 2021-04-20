@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col cols="4">
+    <v-row class="flex-nowrap">
+      <v-col cols="4" class="door-styles">
         <v-row>
           <v-col cols="6">
             <h2 class="text-h4">Select Style</h2>
@@ -14,6 +14,7 @@
                 label="Multiplier"
                 type="number"
                 step=".01"
+                dense
               ></v-text-field>
             </div>
           </v-col>
@@ -62,7 +63,7 @@
         </div>
       </v-col>
 
-      <v-col cols="8">
+      <v-col col>
         <v-data-table
           :headers="headers"
           :items="rows"
@@ -70,78 +71,85 @@
           hide-default-footer
           class="elevation-2"
           disable-sort
+          dense
         >
-          <template v-slot:[`item.isSub`]="{ item }">
-            <v-icon v-if="item.isSub" small>mdi-wrench</v-icon>
-          </template>
+          <template v-slot:item="{ item, index }">
+            <tr :class="{'sub-row': item.isSub}">
+              <td>
+                <v-text-field
+                  v-model="item.qty"
+                  label="Qty"
+                  class="cell-input-qty"
+                  single-line
+                  solo
+                  flat
+                  dense
+                ></v-text-field>
+              </td>
 
-          <template v-slot:[`item.qty`]="{ item }">
-            <v-text-field
-              v-model="item.qty"
-              label="Qty"
-              class="cell-input-qty"
-              single-line
-              solo
-              flat
-              dense
-            ></v-text-field>
-          </template>
+              <td>{{ item.style }}</td>
 
-          <template v-slot:[`item.hinge`]="{ item }">
-            <v-select
-              v-if="!item.isSub"
-              v-model="item.hinge"
-              :items="['Right', 'Left']"
-              class="cell-input-select"
-              dense
-              solo
-              flat
-            ></v-select>
-          </template>
+              <td>{{ item.item }}</td>
 
-          <template v-slot:[`item.finish`]="{ item }">
-            <v-select
-              v-if="!item.isSub"
-              v-model="item.finish"
-              :items="['Right', 'Left']"
-              class="cell-input-select"
-              dense
-              solo
-              flat
-              multiple
-            >
-              <template v-slot:selection="{ index, item, parent }">
-                <template v-if="index === 0">
-                  <span v-if="parent.value.length === 1">{{ item }}</span>
+              <td>{{ item.description }}</td>
 
-                  <span v-else>Both</span>
-                </template>
-              </template>
-            </v-select>
-          </template>
+              <td>
+                <v-select
+                  v-if="!item.isSub"
+                  v-model="item.hinge"
+                  :items="['Right', 'Left']"
+                  class="cell-input-select"
+                  dense
+                  solo
+                  flat
+                >
+                  <template v-slot:selection="{ item }">
+                    <span>{{ item[0] }}</span>
+                  </template>
+                </v-select>
+              </td>
 
-          <template v-slot:[`item.unitPrice`]="{ item }">
-            <span>{{ formatCurrency(item.unitPrice * multiplier) }}</span>
-          </template>
+              <td>
+                <v-select
+                  v-if="!item.isSub"
+                  v-model="item.finish"
+                  :items="['Right', 'Left']"
+                  class="cell-input-select"
+                  dense
+                  solo
+                  flat
+                  multiple
+                >
+                  <template v-slot:selection="{ index, item, parent }">
+                    <template v-if="index === 0">
+                      <span v-if="parent.value.length === 1">{{ item[0] }}</span>
 
-          <template v-slot:[`item.totalPrice`]="{ item }">
-            <span>{{ +(item.qty && item.unitPrice) ? formatCurrency(item.qty * item.unitPrice * multiplier) : '' }}</span>
-          </template>
+                      <span v-else>B</span>
+                    </template>
+                  </template>
+                </v-select>
+              </td>
 
-          <template v-slot:[`item.actions`]="{ index, item }">
-            <div class="text-right">
-              <v-icon
-                v-if="!item.isSub"
-                small
-                class="mr-2"
-                @click="addSub(index)"
-              >mdi-wrench</v-icon>
+              <td>{{ formatCurrency(item.unitPrice * multiplier) }}</td>
 
-              <v-icon
-                small
-                @click="deleteItem(index)"
-              >mdi-delete</v-icon>
-            </div>
+              <td>{{ +(item.qty && item.unitPrice) ? formatCurrency(item.qty * item.unitPrice * multiplier) : '' }}</td>
+
+              <td>
+                <div class="actions-cell text-right">
+                  <v-icon
+                    v-if="!item.isSub"
+                    small
+                    class="mr-2"
+                    @click="addSub(index)"
+                  >mdi-wrench</v-icon>
+
+                  <v-icon
+                    small
+                    @click="deleteItem(index)"
+                  >mdi-delete</v-icon>
+                </div>
+              </td>
+            </tr>
           </template>
         </v-data-table>
 
@@ -238,6 +246,7 @@
               label="Item"
               auto-select-first
               :disabled="!activeDoorStyle"
+              :menu-props="{ bottom: true, offsetY: true, maxHeight: '180px' }"
               @change="addItem"
             ></v-autocomplete>
           </v-col>

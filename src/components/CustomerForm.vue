@@ -1,28 +1,28 @@
 <template>
   <v-form>
     <v-container>
-      <v-row>
-        <v-col cols="12" lg="2" sm="4">
-          <v-text-field  label="Company Name"></v-text-field>
+      <v-row dense>
+        <v-col cols="6" md="4" lg="2">
+          <v-text-field dense label="Company Name"></v-text-field>
         </v-col>
 
-        <v-col cols="12" lg="2" sm="4">
-          <v-text-field  label="Shipping Address"></v-text-field>
+        <v-col cols="6" md="4" lg="2">
+          <v-text-field dense label="Shipping Address"></v-text-field>
         </v-col>
 
-        <v-col cols="12" lg="2" sm="4">
-          <v-text-field  label="Email"></v-text-field>
+        <v-col cols="6" md="4" lg="2">
+          <v-text-field dense label="Email"></v-text-field>
         </v-col>
 
-        <v-col cols="12" lg="2" sm="4">
-          <v-text-field  label="Phone"></v-text-field>
+        <v-col cols="6" md="4" lg="2">
+          <v-text-field dense label="Phone"></v-text-field>
         </v-col>
 
-        <v-col cols="12" lg="2" sm="4">
-          <v-text-field  label="PO"></v-text-field>
+        <v-col cols="6" md="4" lg="2">
+          <v-text-field dense label="PO"></v-text-field>
         </v-col>
 
-        <v-col cols="12" lg="2" sm="4">
+        <v-col cols="6" md="4" lg="2">
           <v-menu
             v-model="dateMenu"
             :close-on-content-click="false"
@@ -40,6 +40,7 @@
                 v-bind="attrs"
                 v-on="on"
                 @click:append="dateMenu = true"
+                dense
               ></v-text-field>
             </template>
 
@@ -82,7 +83,7 @@ export default {
         return null;
       }
 
-      const [month, day, year] = date.split("-");
+      const [year, month, day] = date.split("-");
       return `${month}/${day}/${year}`;
     },
 

@@ -4,7 +4,6 @@ export default {
   data() {
     return {
       headers: [
-        { text: '', value: 'isSub' },
         { text: 'Qty', value: 'qty' },
         { text: 'Style', value: 'style' },
         { text: 'Item', value: 'item' },

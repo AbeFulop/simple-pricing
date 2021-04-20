@@ -1,5 +1,25 @@
-.v-data-table ::v-deep .v-text-field__details {
-  display: none;
+.v-data-table ::v-deep {
+  .v-text-field__details {
+    display: none;
+  }
+
+  .v-input--dense > .v-input__control > .v-input__slot {
+    margin-bottom: 0;
+  }
+}
+
+td {
+  border-bottom: none !important;
+  border-top: thin solid rgba(0, 0, 0, 0.12);
+}
+
+tr:first-child td,
+.sub-row td {
+  border-top: none;
+}
+
+.sub-row {
+  background-color: #efefef;
 }
 
 .cell-input-qty {
@@ -7,7 +27,7 @@
 }
 
 .cell-input-select {
-  width: 100px;
+  width: 65px;
 }
 
 .active-style {
@@ -24,4 +44,13 @@
 
 .item-list-container {
   width: 350px;
+}
+
+@media print {
+  .door-styles,
+  .item-list-container,
+  .actions-cell {
+    display: none !important;
+  }
+
 }

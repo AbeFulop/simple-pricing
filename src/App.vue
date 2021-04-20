@@ -88,4 +88,22 @@ export default {
   }
 }
 
+@media print {
+
+  .v-app-bar--fixed {
+    position: relative !important;
+    flex-grow: 0;
+
+    &.primary {
+      background-color: #fff !important;
+
+      color: #00838f;
+    }
+
+    + .v-main {
+      padding-top: 0 !important;
+    }
+  }
+}
+
 </style>
