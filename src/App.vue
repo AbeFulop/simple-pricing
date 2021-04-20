@@ -64,7 +64,7 @@
 
 <script>
 import CustomerForm from './components/CustomerForm';
-import ItemList from './components/ItemList';
+import ItemList from './components/item-list/ItemList';
 
 export default {
   name: 'App',
