@@ -30,7 +30,7 @@
         text
       >
         <span class="mr-2">cubitac.com</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        <v-icon class="d-print-none">mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
 

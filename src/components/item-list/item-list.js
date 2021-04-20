@@ -12,7 +12,7 @@ export default {
         { text: 'Finish', value: 'finish', class: 'tiny-font', cellClass: 'tiny-font' },
         { text: 'Unit Price', value: 'unitPrice' },
         { text: 'Total Price', value: 'totalPrice' },
-        { text: '', value: 'actions' },
+        { text: '', value: 'actions', class: 'actions-cell' },
       ],
 
       rows: [],

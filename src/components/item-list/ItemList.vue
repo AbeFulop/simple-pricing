@@ -134,20 +134,18 @@
 
               <td>{{ +(item.qty && item.unitPrice) ? formatCurrency(item.qty * item.unitPrice * multiplier) : '' }}</td>
 
-              <td>
-                <div class="actions-cell text-right">
-                  <v-icon
-                    v-if="!item.isSub"
-                    small
-                    class="mr-2"
-                    @click="addSub(index)"
-                  >mdi-wrench</v-icon>
+              <td class="actions-cell text-right">
+                <v-icon
+                  v-if="!item.isSub"
+                  small
+                  class="mr-2"
+                  @click="addSub(index)"
+                >mdi-wrench</v-icon>
 
-                  <v-icon
-                    small
-                    @click="deleteItem(index)"
-                  >mdi-delete</v-icon>
-                </div>
+                <v-icon
+                  small
+                  @click="deleteItem(index)"
+                >mdi-delete</v-icon>
               </td>
             </tr>
           </template>
