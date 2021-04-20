@@ -20,6 +20,10 @@
 
       <v-spacer></v-spacer>
 
+      <v-btn dark icon @click="print">
+        <v-icon class="d-print-none">mdi-printer</v-icon>
+      </v-btn>
+
       <v-btn
         href="https://cubitac.com"
         target="_blank"
@@ -77,6 +81,12 @@ export default {
   data: () => ({
     //
   }),
+
+  methods: {
+    print() {
+      window.print();
+    }
+  },
 };
 </script>
 
