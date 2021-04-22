@@ -32,12 +32,18 @@
         <span class="mr-2">cubitac.com</span>
         <v-icon class="d-print-none">mdi-open-in-new</v-icon>
       </v-btn>
+
+      <v-btn v-if="isLoggedIn" class="d-print-none" text @click="logout">Logout</v-btn>
     </v-app-bar>
 
     <v-main>
-      <CustomerForm />
+      <div v-if="isLoggedIn">
+        <CustomerForm />
 
-      <ItemList />
+        <ItemList />
+      </div>
+
+      <Login v-else />
     </v-main>
 
     <v-footer
@@ -69,23 +75,36 @@
 <script>
 import CustomerForm from './components/CustomerForm';
 import ItemList from './components/item-list/ItemList';
+import Login from './components/Login';
 
 export default {
   name: 'App',
 
   components: {
     CustomerForm,
-    ItemList
+    ItemList,
+    Login,
   },
 
   data: () => ({
     //
   }),
 
+  computed: {
+    isLoggedIn() {
+      return !!localStorage.getItem('auth-user');
+    }
+  },
+
   methods: {
     print() {
       window.print();
-    }
+    },
+
+    logout() {
+      localStorage.removeItem('auth-user');
+      document.location.reload();
+    },
   },
 };
 </script>
