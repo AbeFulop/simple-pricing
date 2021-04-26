@@ -184,8 +184,8 @@ export default {
       this.dialogDelete = true;
     },
 
-    deleteItemConfirm(index) {
-      this.rows.splice(index, 1);
+    deleteItemConfirm() {
+      this.rows.splice(this.deleteIndex, 1);
       this.closeDelete();
     },
 
