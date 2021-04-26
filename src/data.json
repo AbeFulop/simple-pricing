@@ -11469,6 +11469,21 @@
         "item": "WALL CUT DEPTH",
         "description": "Cut Depth of Wall Cabinet",
         "price": "327"
+    },
+    {
+        "item": "DOOR CUTOUT",
+        "description": "Door Cut Out Center Panel For Glass",
+        "price": "212"
+    },
+    {
+        "item": "Insert Clear Glass",
+        "description": "Insert Clear Glass on Door",
+        "price": "192"
+    },
+    {
+        "item": "Insert Frosted",
+        "description": "Insert Frosted Glass on Door",
+        "price": "384"
     }
   ]
 }
