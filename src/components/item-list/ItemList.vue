@@ -93,7 +93,16 @@
 
               <td>{{ item.item }}</td>
 
-              <td>{{ item.description }}</td>
+              <td>
+                <v-edit-dialog :return-value.sync="item.description">
+                  {{ item.description }}
+                  <template v-slot:input>
+                    <v-text-field
+                      v-model="item.description"
+                    ></v-text-field>
+                  </template>
+                </v-edit-dialog>
+              </td>
 
               <td>
                 <v-select
