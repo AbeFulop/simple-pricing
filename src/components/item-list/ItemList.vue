@@ -80,6 +80,8 @@
                   v-model="item.qty"
                   label="Qty"
                   class="cell-input-qty"
+                  type="number"
+                  min="0"
                   single-line
                   solo
                   flat
