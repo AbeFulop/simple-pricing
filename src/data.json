@@ -11376,49 +11376,49 @@
         "price": "878"
     },
     {
-        "item": "POS12",
-        "description": "12\" Pull Out Drawer",
-        "price": "102"
+        "item": "POS12-INSTALLED",
+        "description": "12\" Pull Out Drawer Installed",
+        "price": "151"
     },
     {
-        "item": "POS15",
-        "description": "15\" Pull Out Drawer",
-        "price": "111"
+        "item": "POS15-INSTALLED",
+        "description": "15\" Pull Out Drawer Installed",
+        "price": "160"
     },
     {
-        "item": "POS18",
-        "description": "18\" Pull Out Drawer",
-        "price": "123"
-    },
-    {
-        "item": "POS21",
-        "description": "21\" Pull Out Drawer",
-        "price": "134"
-    },
-    {
-        "item": "POS24",
-        "description": "24\" Pull Out Drawer",
-        "price": "142"
-    },
-    {
-        "item": "POS27",
-        "description": "27\" Pull Out Drawer",
-        "price": "153"
-    },
-    {
-        "item": "POS30",
-        "description": "30\" Pull Out Drawer",
-        "price": "164"
-    },
-    {
-        "item": "POS33",
-        "description": "33\" Pull Out Drawer",
+        "item": "POS18-INSTALLED",
+        "description": "18\" Pull Out Drawer Installed",
         "price": "172"
     },
     {
-        "item": "POS36",
-        "description": "36\" Pull Out Drawer",
-        "price": "184"
+        "item": "POS21-INSTALLED",
+        "description": "21\" Pull Out Drawer Installed",
+        "price": "183"
+    },
+    {
+        "item": "POS24-INSTALLED",
+        "description": "24\" Pull Out Drawer Installed",
+        "price": "191"
+    },
+    {
+        "item": "POS27-INSTALLED",
+        "description": "27\" Pull Out Drawer Installed",
+        "price": "202"
+    },
+    {
+        "item": "POS30-INSTALLED",
+        "description": "30\" Pull Out Drawer Installed",
+        "price": "213"
+    },
+    {
+        "item": "POS33-INSTALLED",
+        "description": "33\" Pull Out Drawer Installed",
+        "price": "221"
+    },
+    {
+        "item": "POS36-INSTALLED",
+        "description": "36\" Pull Out Drawer Installed",
+        "price": "233"
     },
     {
         "item": "SC-BWBK15-1",
