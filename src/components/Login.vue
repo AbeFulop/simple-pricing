@@ -51,8 +51,13 @@ export default {
         },
         {
           username: 'who',
-          displayName: 'Weisman HO',
+          displayName: 'Weisman Home Outlets',
           password: 'weismanho'
+        },
+        {
+          username: 'fina',
+          displayName: 'Fina Cabinets',
+          password: 'FinaCabinets'
         },
         {
           username: 'cubitac',
