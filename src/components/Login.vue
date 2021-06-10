@@ -63,6 +63,11 @@ export default {
           username: 'cubitac',
           displayName: 'Cubitac',
           password: 'cubitac2000'
+        },
+        {
+          username: 'creative',
+          displayName: 'Createive Woodwork',
+          password: 'creative5151'
         }
       ];
 
