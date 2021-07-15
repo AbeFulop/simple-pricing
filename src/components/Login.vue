@@ -68,6 +68,36 @@ export default {
           username: 'creative',
           displayName: 'Createive Woodwork',
           password: 'creative5151'
+        },
+        {
+          username:"Tskitchens",
+          displayName:"Tri State Kitchens",
+          password:"tskitchens2245"
+        },
+        {
+          username:"Instyle",
+          displayName:"Instyle",
+          password:"instyle7800"
+        },
+        {
+          username:"Kitchenlion",
+          displayName:"Kitchen lion",
+          password:"kitchenlion2900"
+        },
+        {
+          username:"Kentco",
+          displayName:"Kentco",
+          password:"kentco606"
+        },
+        {
+          username:"Rashi",
+          displayName:"Rashi janitorials ",
+          password:"rashi7513"
+        },
+        {
+          username:"Global",
+          displayName:"global cabints",
+          password:"global4141"
         }
       ];
 
