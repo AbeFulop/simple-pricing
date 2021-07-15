@@ -76,27 +76,27 @@ export default {
         },
         {
           username:"Instyle",
-          displayName:"Instyle",
+          displayName:"In Style Kitchen",
           password:"instyle7800"
         },
         {
           username:"Kitchenlion",
-          displayName:"Kitchen lion",
+          displayName:"Kitchen Lion",
           password:"kitchenlion2900"
         },
         {
           username:"Kentco",
-          displayName:"Kentco",
+          displayName:"Kentco Kitchens",
           password:"kentco606"
         },
         {
           username:"Rashi",
-          displayName:"Rashi janitorials ",
+          displayName:"Rashi Janitorials",
           password:"rashi7513"
         },
         {
           username:"Global",
-          displayName:"global cabints",
+          displayName:"Global Cabinets",
           password:"global4141"
         }
       ];
