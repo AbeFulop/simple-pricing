@@ -70,6 +70,66 @@ export default {
           password: 'creative5151'
         },
         {
+          username: 'highline',
+          displayName: 'Highline Cabinetry',
+          password: 'highline2770'
+        },
+        {
+          username: 'arkitchens',
+          displayName: 'A&R Kitchens',
+          password: 'arkitchens9500'
+        },
+        {
+          username: 'nagad',
+          displayName: 'Nagad Cabinets',
+          password: 'nagad7200'
+        },
+        {
+          username: 'parkkitchen',
+          displayName: 'Park Kitchen and Stone',
+          password: 'parkkitchen8080'
+        },
+        {
+          username: 'kitchenexpo',
+          displayName: 'Kitchen Expo',
+          password: 'expo9595'
+        },
+        {
+          username: 'bphomedecor',
+          displayName: 'BP Home Decor',
+          password: 'homedecor3200'
+        },
+        {
+          username: 'dnacabinets',
+          displayName: 'DNA Cabinets',
+          password: 'dnac1524'
+        },
+        {
+          username: 'lazerglick',
+          displayName: 'Lazer Glick',
+          password: 'lazerglick3502'
+        },
+        {
+          username: 'eaststone',
+          displayName: 'East Stone Kitchen & Bath',
+          password: 'eaststone0097'
+        },
+        {
+          username: 'abest',
+          displayName: 'A Best Cabinets',
+          password: 'abest8686'
+        },
+        {
+          username: 'KitchenConceptsUsa',
+          displayName: 'Kitchen Concepts USA',
+          password: 'KitchenConceptsUsa2920'
+        },
+        {
+          username: 'RobertSmith',
+          displayName: 'Robert Smith Internal Account ',
+          password: 'rsmith3511'
+        },
+        {
           username:"Tskitchens",
           displayName:"Tri State Kitchens",
           password:"tskitchens2245"
