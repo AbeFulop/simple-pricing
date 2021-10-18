@@ -163,7 +163,13 @@ export default {
         username:"Nova",
         displayName:"Nova Kitchen & Design",
         password:"novakitchen9443"
-      }
+        }, 
+        {
+          username:"Forever",
+          displayName:"Forever Kitchen & Bath Inc",
+          password:"forever3012"
+        }
+
      ];
 
       const u = logins.find(user => user.username === this.username?.toLowerCase());
