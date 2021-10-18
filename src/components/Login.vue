@@ -158,8 +158,13 @@ export default {
           username:"Global",
           displayName:"Global Cabinets",
           password:"global4141"
-        }
-      ];
+        },
+        {
+        username:"Nova",
+        displayName:"Nova Kitchen & Design",
+        password:"novakitchen9443"
+      }
+     ];
 
       const u = logins.find(user => user.username === this.username?.toLowerCase());
 
